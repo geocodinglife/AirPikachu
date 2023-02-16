@@ -1,0 +1,96 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+
+Rails:
+  Enabled: true
+
+AllCops:
+  NewCops: enable
+  DefaultFormatter: progress
+  DisplayCopNames: true
+  Exclude:
+    - config/**/*
+    - .gem/**/*
+    - bin/**/*
+    - build/**/*
+    - deploy/**/*
+    - db/schema.rb
+    - db/seeds.rb
+    - db/migrate/*
+    - gems/**/*
+    - log/**/*
+    - node_modules/**/*
+    - public/**/*
+    - tmp/**/*
+    - vendor/**/*
+    - .pryrc
+    - Guardfile
+
+  # Set cache directory inside project root.
+  # This will speed up rubocop being run with docker-compose
+  CacheRootDirectory: tmp/
+
+# TODO: This should probably be around 80 once we correct _todo items
+Layout/LineLength:
+  # Max: 80
+  Exclude:
+    - 'config/application.rb'
+    - 'config/environments/development.rb'
+    - 'config/environments/production.rb'
+    - 'config/environments/test.rb'
+    - 'config/initializers/backtrace_silencers.rb'
+    - 'config/initializers/cors.rb'
+    - 'config/initializers/wrap_parameters.rb'
+    - 'config/puma.rb'
+    - 'db/seeds.rb'
+    - 'Rakefile'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - config/routes.rb
+    - config/environments/*.rb
+    - spec/**/*.rb
+    - lib/tasks/**/*.rake
+
+# TODO: This should probably be around 15 once we correct _todo items
+# Metrics/MethodLength:
+#   Max: 15
+
+Style/FormatString:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/SignalException:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/TrailingUnderscoreVariable:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+  Exclude:
+    - config/*.rb
+    - app/channels/**/*.rb
+
+Style/StringLiterals:
+  Enabled: false
+
+Naming/InclusiveLanguage:
+  Enabled: false
